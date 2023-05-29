@@ -19,4 +19,11 @@
     [gui]
     mouse_left_click_function=play_or_pause
   '';
+  programs.firefox.enable = true;
+  programs.firefox.profiles."0".extensions =
+    with pkgs.nur.repos.rycee.firefox-addons; [
+      keepassxc-browser
+      multi-account-containers
+      ublock-origin
+    ];
 }
