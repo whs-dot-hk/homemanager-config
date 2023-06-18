@@ -20,7 +20,7 @@
     mouse_left_click_function=play_or_pause
   '';
   programs.firefox.enable = true;
-  programs.firefox.profiles."0".extraConfig = builtins.readFile ./user.js;
+  programs.firefox.profiles."0".extraConfig = builtins.readFile pkgs.userjs;
   programs.firefox.profiles."0".extensions =
     with pkgs.nur.repos.rycee.firefox-addons; [
       keepassxc-browser

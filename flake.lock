@@ -55,7 +55,20 @@
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
-        "nur": "nur"
+        "nur": "nur",
+        "userjs": "userjs"
+      }
+    },
+    "userjs": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-d3ugYiMYycEC44DZdoLrGwjdzH1mtalJZ3Hkp6wuoEo=",
+        "type": "file",
+        "url": "https://raw.githubusercontent.com/arkenfox/user.js/master/user.js"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://raw.githubusercontent.com/arkenfox/user.js/master/user.js"
       }
     }
   },
