@@ -10,19 +10,22 @@
       url = "https://raw.githubusercontent.com/arkenfox/user.js/master/user.js";
       flake = false;
     };
-  };
-  outputs = { nixpkgs, home-manager, nur, userjs, ... }:
-    let
-      system = "x86_64-linux";
-      overlay = f: p: { inherit userjs; };
-      pkgs = import nixpkgs {
-        inherit system;
-        overlays = [ nur.overlay overlay ];
-      };
-    in {
-      homeConfigurations.whs = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [ ./home.nix ];
-      };
+    std = {
+      url = "github:divnix/std";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
+  };
+
+  outputs = { std, self, ... }@inputs:
+    std.growOn {
+      inherit inputs;
+
+      systems = [ "x86_64-linux" ];
+
+      cellsFrom = ./nix;
+
+      cellBlocks = with std.blockTypes; [ (functions "configurations") ];
+    }
+
+    { homeConfigurations = std.pick self [ "home" "configurations" ]; };
 }
