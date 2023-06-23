@@ -14,6 +14,10 @@
       url = "github:divnix/std";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    haumea = {
+      url = "github:nix-community/haumea/v0.2.2";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { std, self, ... }@inputs:
@@ -24,7 +28,10 @@
 
       cellsFrom = ./nix;
 
-      cellBlocks = with std.blockTypes; [ (functions "configurations") ];
+      cellBlocks = with std.blockTypes; [
+        (functions "configurations")
+        (functions "modules")
+      ];
     }
 
     { homeConfigurations = std.pick self [ "home" "configurations" ]; };
