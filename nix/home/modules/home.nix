@@ -1,5 +1,6 @@
 { inputs }:
-{ config, ... }: {
+let inherit (inputs) nixpkgs;
+in { config, ... }: {
   home.homeDirectory = "/home/whs";
   home.stateVersion = "23.05";
   home.username = "whs";
@@ -28,4 +29,5 @@
       multi-account-containers
       ublock-origin
     ];
+  home.packages = with nixpkgs; [ nixfmt ];
 }
