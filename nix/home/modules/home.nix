@@ -1,6 +1,6 @@
-{ inputs }:
+{ inputs, config, ... }:
 let inherit (inputs) nixpkgs;
-in { config, ... }: {
+in {
   home.homeDirectory = "/home/whs";
   home.stateVersion = "23.05";
   home.username = "whs";
@@ -13,7 +13,7 @@ in { config, ... }: {
   };
   home.file.".config/smplayer/smplayer.ini".text = ''
     [advanced]
-    mplayer_additional_options=--hwdec=nvdec-copy --vo=gpu
+    mplayer_additional_options=--hwdec=nvdec-copy --vo=gpu-next
     use_mplayer_window=true
     [default_gui]
     ; Display remaining time instead of total time
