@@ -2,12 +2,11 @@
   inputs,
   cell,
 }: let
-  inherit (inputs) haumea;
+  inherit (inputs) hive;
 in
-  haumea.lib.load {
-    src = ./homeProfiles;
-    inputs = {
-      inherit cell;
-      inherit inputs;
-    };
+  hive.findLoad {
+    inherit cell;
+    inherit inputs;
+
+    block = ./homeProfiles;
   }
