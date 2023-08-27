@@ -4,9 +4,11 @@
 }: let
   inherit (inputs) hive;
 in
-  hive.findLoad {
+  removeAttrs
+  (hive.findLoad {
     inherit cell;
     inherit inputs;
 
     block = ./.;
-  }
+  })
+  ["default"]
