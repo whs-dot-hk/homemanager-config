@@ -1,5 +1,4 @@
 {
-  inputs.haumea.url = "github:nix-community/haumea/v0.2.2";
   inputs.hive.url = "github:whs-dot-hk/hive/test";
   inputs.home-manager.url = "github:nix-community/home-manager";
   inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
