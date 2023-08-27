@@ -8,5 +8,5 @@ in
     inherit cell;
     inherit inputs;
 
-    block = ./homeProfiles;
+    block = ./.;
   }

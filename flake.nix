@@ -22,7 +22,7 @@
     std,
     ...
   } @ inputs:
-    std.growOn {
+    hive.growOn {
       inherit inputs;
 
       cellsFrom = ./cells;
